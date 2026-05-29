@@ -9,8 +9,6 @@ portfolio/
 ├── index.html     ← All sections (Hero, About, Skills, Projects, Contact, Footer)
 ├── style.css      ← All styles (dark theme, animations, responsive)
 ├── script.js      ← Cursor, scroll, mobile nav, AOS init, form
-├── assets/
-│   └── photo.jpg  ← Put YOUR photo here (rename file to photo.jpg)
 └── README.md
 ```
 
