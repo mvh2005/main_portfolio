@@ -35,20 +35,5 @@ No server needed. No install needed.
 2. Import your GitHub repo or drag folder
 3. Done
 
-## 📸 Adding Your Photo
-1. Copy your photo into the `assets/` folder
-2. Rename it to `photo.jpg`
-3. That's it — it shows in the Hero section automatically
 
-## 📬 Making the Contact Form Send Real Emails
-1. Sign up at https://formspree.io (free)
-2. Create a new form → copy your Form ID
-3. In `script.js`, uncomment the Formspree code block
-4. Replace `YOUR_FORM_ID` with your actual ID
 
-## 🎨 Customising
-
-- **Colors** — edit `:root` variables at the top of `style.css`
-- **Content** — edit text directly in `index.html`
-- **Add projects** — copy an `<article class="project-card">` block in `index.html`
-- **Skills** — add `<span class="tag">Your Skill</span>` inside any `.skill-tags` div
