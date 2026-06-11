@@ -40,7 +40,7 @@ customElements.define('portfolio-contact', class extends HTMLElement {
                   <p class="contact-value">Vignesh Mara</p>
                 </div>
               </a>
-              <a href="https://github.com/vigneshgit2005"
+              <a href="https://github.com/mvh2005"
                  target="_blank" rel="noopener noreferrer" class="contact-card">
                 <span class="contact-icon">gh</span>
                 <div>
