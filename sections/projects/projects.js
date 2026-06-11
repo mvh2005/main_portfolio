@@ -19,7 +19,7 @@ customElements.define('portfolio-projects', class extends HTMLElement {
                 <span>Scikit-learn</span>
               </div>
               <p><strong>Core Impact:</strong> Uses similarity-based recommendation logic, data preprocessing, and model-driven ranking to make discovery faster and more personal.</p>
-              <a href="https://github.com/vigneshgit2005/AI-Based-Movie-Recommendation-System.git"
+              <a href="https://github.com/mvh2005/AI-Based-Movie-Recommendation-System.git"
                  class="project-link" target="_blank" rel="noopener noreferrer">
                 GitHub Repository <span class="arrow">-&gt;</span>
               </a>
@@ -36,7 +36,7 @@ customElements.define('portfolio-projects', class extends HTMLElement {
                 <span>Python</span>
               </div>
               <p><strong>Core Impact:</strong> Combines form-style inputs, message templates, and simple generation logic to produce friendly, reusable greetings.</p>
-              <a href="https://github.com/vigneshgit2005/Birthday_Message-Generator.git"
+              <a href="https://github.com/mvh2005/Birthday_Message-Generator.git"
                  class="project-link" target="_blank" rel="noopener noreferrer">
                 GitHub Repository <span class="arrow">-&gt;</span>
               </a>
@@ -54,7 +54,7 @@ customElements.define('portfolio-projects', class extends HTMLElement {
                 <span>CSS</span>
               </div>
               <p><strong>Core Impact:</strong> Tracks intake progress with interactive UI states, persistent data support, and clean feedback for daily habit building.</p>
-              <a href="https://github.com/vigneshgit2005/Aqua_Tracker.git"
+              <a href="https://github.com/mvh2005/Aqua_Tracker.git"
                  class="project-link" target="_blank" rel="noopener noreferrer">
                 GitHub Repository <span class="arrow">-&gt;</span>
               </a>
