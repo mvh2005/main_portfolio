@@ -22,7 +22,7 @@ customElements.define('portfolio-home', class extends HTMLElement {
             </p>
             <div class="hero-actions" data-aos="fade-up" data-aos-delay="400">
               <a href="#projects" class="btn btn-primary">View My Work</a>
-              <a href="sections/resume-modal/resume_vignesh.pdf" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Resume PDF</a>
+              <a href="sections/resume-modal/resume_vignesh.pdf" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Resume</a>
               <a href="https://github.com/vigneshgit2005" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">GitHub</a>
               <a href="https://www.linkedin.com/in/vignesh-mara-561942279/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
