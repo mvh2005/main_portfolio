@@ -8,7 +8,7 @@ class ResumeModal extends HTMLElement {
           <button id="resumeClose" class="resume-close">&times;</button>
         </div>
         <div class="resume-modal-content">
-          <iframe id="resumeFrame" src="sections\resume-modal\vignesh_resume.pdf" type="application/pdf"></iframe>
+<iframe id="resumeFrame" src="./sections/resume-modal/vignesh_resume.pdf" type="application/pdf"></iframe>
         </div>
       </div>
     `;
