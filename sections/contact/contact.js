@@ -32,7 +32,7 @@ customElements.define('portfolio-contact', class extends HTMLElement {
                   <p class="contact-value">vigneshmara143@gmail.com</p>
                 </div>
               </a>
-              <a href="https://www.linkedin.com/in/vignesh-mara-561942279/"
+              <a href="https://www.linkedin.com/in/mara-vignesh-561942279/"
                  target="_blank" rel="noopener noreferrer" class="contact-card">
                 <span class="contact-icon">in</span>
                 <div>
@@ -45,7 +45,7 @@ customElements.define('portfolio-contact', class extends HTMLElement {
                 <span class="contact-icon">gh</span>
                 <div>
                   <p class="contact-label">GitHub</p>
-                  <p class="contact-value">vigneshgit2005</p>
+                  <p class="contact-value">mvh2005</p>
                 </div>
               </a>
             </div>
