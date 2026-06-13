@@ -1,21 +1,6 @@
 # 🎨 Mara Vignesh - Enhanced Portfolio
 
-A modern, fully-responsive portfolio website built with vanilla HTML, CSS, and JavaScript. No frameworks, no build tools, no complexity—just clean code that's easy to customize.
-
-## ✨ Features
-
-- **Modern Design**: Gradient accents, smooth animations, and beautiful typography
-- **Responsive Layout**: Mobile-first design that works on all devices
-- **Smooth Navigation**: Sticky header with active link indicators and smooth scrolling
-- **Interactive Elements**: Hover effects, animations on scroll, and micro-interactions
-- **Project Showcase**: Beautiful project cards with tags and links
-- **Skills Grid**: Organized skills by category
-- **Timeline**: Visual experience timeline
-- **Contact Form**: Fully functional contact form with validation
-- **Resume Modal**: Display your resume in a modal with PDF support
-- **Dark-friendly Design**: Uses CSS custom properties for easy theming
-- **Performance Optimized**: Lightweight with no external dependencies
-- **Accessibility**: Semantic HTML and ARIA labels for better accessibility
+A modern, fully-responsive portfolio website built with  HTML, CSS, and JavaScript. No frameworks, no build tools, no complexity—just clean code that's easy to customize.
 
 ## 🗂️ Folder Structure
 
@@ -152,33 +137,12 @@ Breakpoints:
 2. Push your portfolio files to the `main` branch
 3. Your portfolio will be live at `https://your-username.github.io`
 
-### Vercel (Recommended)
-1. Push to GitHub
-2. Visit [vercel.com](https://vercel.com)
-3. Import your GitHub repository
-4. Deploy with one click
-
-### Netlify
-1. Visit [netlify.com](https://netlify.com)
-2. Drag and drop the portfolio folder
-3. Get a live URL instantly
-
 ### Traditional Hosting
 1. Upload the `portfolio` folder to your web hosting
 2. Ensure `index.html` is in the root directory
 3. Access via your domain
 
 ## 💡 Tips & Tricks
-
-### Adding Images to Projects
-Replace emoji with actual images:
-```javascript
-// Instead of:
-image: '🎯',
-
-// Use:
-image: '<img src="path/to/image.jpg" alt="Project">'
-```
 
 ### Styling Your Own Theme
 1. Copy and modify the CSS variables
@@ -190,11 +154,6 @@ image: '<img src="path/to/image.jpg" alt="Project">'
 2. Create a JavaScript file with your component
 3. Add a new `<section>` in `index.html`
 4. Import the script at the bottom of `index.html`
-
-### Form Submission
-The contact form currently logs to console. To send emails:
-- Use a service like [Formspree](https://formspree.io/)
-- Or set up a backend with [Firebase](https://firebase.google.com/) or [Vercel Functions](https://vercel.com/docs/functions)
 
 ## 🔧 Browser Support
 
