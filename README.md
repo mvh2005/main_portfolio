@@ -257,6 +257,6 @@ Feel free to fork and enhance this portfolio. Some ideas:
 
 ---
 
-**Built with ❤️ using vanilla JavaScript**
+**Built with ❤️ using HTML,CSS,JavaScript**
 
 For questions or support, feel free to reach out!
