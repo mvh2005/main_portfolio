@@ -3,8 +3,8 @@ customElements.define('portfolio-contact', class extends HTMLElement {
     this.innerHTML = `
       <section id="contact" class="contact section">
         <div class="container">
-          <div class="section-label" data-aos="fade-right">Education &amp; Contact</div>
-          <h2 class="section-title" data-aos="fade-up">Education &amp; Gateway</h2>
+          <div class="section-label" data-aos="fade-right">Contact</div>
+          
           <p class="contact-sub" data-aos="fade-up" data-aos-delay="100">
             Recruiters, collaborators, and mentors can reach out for internships, project work, or developer opportunities.
           </p>
