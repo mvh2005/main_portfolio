@@ -4,7 +4,7 @@ customElements.define('portfolio-contact', class extends HTMLElement {
       <section id="contact" class="contact section">
         <div class="container">
           <div class="section-label" data-aos="fade-right">Contact</div>
-          
+          <br><br>
           <p class="contact-sub" data-aos="fade-up" data-aos-delay="100">
             Recruiters, collaborators, and mentors can reach out for internships, project work, or developer opportunities.
           </p>
