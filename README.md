@@ -1,6 +1,6 @@
-# 🎨 Mara Vignesh - Enhanced Portfolio
+# 🎨 Mara Vignesh - Portfolio
 
-A modern, fully-responsive portfolio website built with  HTML, CSS, and JavaScript. No frameworks, no build tools, no complexity—just clean code that's easy to customize.
+A modern, fully-responsive portfolio website built with HTML, CSS, and JavaScript. No frameworks, no build tools, no complexity—just clean code that's easy to customize.
 
 ## 🗂️ Folder Structure
 
@@ -21,6 +21,9 @@ portfolio/
     │   └── projects.js        # Portfolio projects
     ├── milestones/
     │   └── milestones.js      # Experience timeline
+    ├── certifications/
+    |       ├── certifications.js    # Certificate modal
+    |       └── certificate.pdf  # Certifications (add these)
     ├── contact/
     │   └── contact.js         # Contact form
     ├── footer/
@@ -99,6 +102,19 @@ socials: [
     year: '2024',
     title: 'Your Achievement',
     description: 'Description of what you accomplished...'
+}
+```
+
+### 7. Add Your Certifications (certifications.js)
+```javascript
+{
+    id: 1,
+    title: 'Your Certification Name',
+    issuer: 'Issuing Organization',
+    date: 'Month Year',
+    description: 'Brief description of the certification...',
+    badge: '🏆',  // Emoji or replace with <img src="...">
+    link: 'https://verify-certificate-url'  // Optional verification link
 }
 ```
 
@@ -226,6 +242,11 @@ year: new Date().getFullYear() // Automatically updates
 - Check the file is in `sections/resume-modal/`
 - Verify the path in `resume-modal.js`
 
+**Certifications not displaying?**
+- Ensure `certifications.js` is in `sections/certifications/`
+- Confirm `<portfolio-certifications></portfolio-certifications>` is present in `index.html`
+- Check that the script tag `<script src="sections/certifications/certifications.js"></script>` is included at the bottom of `index.html`
+
 **Styles not applying?**
 - Hard refresh: `Ctrl+Shift+R` (Windows) or `Cmd+Shift+R` (Mac)
 - Check CSS file is loaded in DevTools
@@ -257,6 +278,6 @@ Feel free to fork and enhance this portfolio. Some ideas:
 
 ---
 
-**Built with ❤️ using HTML,CSS,JavaScript**
+**Built with ❤️ using HTML, CSS, JavaScript**
 
 For questions or support, feel free to reach out!
