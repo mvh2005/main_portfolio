@@ -8,7 +8,7 @@ customElements.define('portfolio-certifications', class extends HTMLElement {
     this.innerHTML = `
       <section id="certifications" class="certifications section">
         <div class="container">
-          <div class="section-label" data-aos="fade-right">0 / Certifications</div>
+          <div class="section-label" data-aos="fade-right">Certifications</div>
           <h2 class="section-title" data-aos="fade-up">Industry Credentials</h2>
 
           <div class="certifications-grid">

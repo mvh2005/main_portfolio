@@ -3,7 +3,7 @@ customElements.define('portfolio-milestones', class extends HTMLElement {
     this.innerHTML = `
       <section id="milestones" class="achievements section">
         <div class="container">
-          <div class="section-label" data-aos="fade-right">03 / Professional Experience &amp; Milestones</div>
+          <div class="section-label" data-aos="fade-right">Professional Experience &amp; Milestones</div>
           <h2 class="section-title" data-aos="fade-up">Experience &amp; Achievements</h2>
 
           <div class="achievements-grid">

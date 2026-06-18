@@ -1729,6 +1729,10 @@ body:has(button:hover) .cursor { width: 18px; height: 18px; background: var(--ac
   .skills-grid { grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
   
+  /* Education & Experience */
+  .edu-card, .exp-card { gap: 18px; }
+  .edu-content, .exp-content { padding: 22px 20px; }
+  
   /* Forms */
   .contact-form { padding: 24px; }
   
@@ -1752,4 +1756,6 @@ body:has(button:hover) .cursor { width: 18px; height: 18px; background: var(--ac
   .contact-form { padding: 18px; }
   .resume-modal-content iframe { height: 400px; }
   .skill-card, .project-card, .milestone { padding: 20px; }
+  .edu-content, .exp-content { padding: 18px 16px; }
+  .edu-card, .exp-card { gap: 14px; }
 }

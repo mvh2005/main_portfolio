@@ -3,7 +3,7 @@ customElements.define('portfolio-contact', class extends HTMLElement {
     this.innerHTML = `
       <section id="contact" class="contact section">
         <div class="container">
-          <div class="section-label" data-aos="fade-right">04 / Education &amp; Contact</div>
+          <div class="section-label" data-aos="fade-right">Education &amp; Contact</div>
           <h2 class="section-title" data-aos="fade-up">Education &amp; Gateway</h2>
           <p class="contact-sub" data-aos="fade-up" data-aos-delay="100">
             Recruiters, collaborators, and mentors can reach out for internships, project work, or developer opportunities.
@@ -11,20 +11,7 @@ customElements.define('portfolio-contact', class extends HTMLElement {
 
           <div class="contact-grid">
             <div class="contact-links" data-aos="fade-up" data-aos-delay="150">
-              <div class="contact-card">
-                <span class="contact-icon">ED</span>
-                <div>
-                  <p class="contact-label">Academic Background</p>
-                  <p class="contact-value">B.Tech CSE (AI), MITS Deemed University - Pursuing</p>
-                </div>
-              </div>
-              <div class="contact-card">
-                <span class="contact-icon">DP</span>
-                <div>
-                  <p class="contact-label">Foundation</p>
-                  <p class="contact-value">Diploma CSE, Govt. Polytechnic Proddutur - 2024</p>
-                </div>
-              </div>
+
               <a href="mailto:vigneshmara143@gmail.com" class="contact-card">
                 <span class="contact-icon">@</span>
                 <div>

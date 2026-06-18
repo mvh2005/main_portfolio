@@ -3,7 +3,7 @@ customElements.define('portfolio-skills', class extends HTMLElement {
     this.innerHTML = `
       <section id="skills" class="skills section">
         <div class="container">
-          <div class="section-label" data-aos="fade-right">01 / Technical Arsenal</div>
+          <div class="section-label" data-aos="fade-right">Technical Arsenal</div>
           <h2 class="section-title" data-aos="fade-up">Skills I Work With</h2>
 
           <div class="skills-grid">
