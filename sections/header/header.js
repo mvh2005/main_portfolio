@@ -9,6 +9,7 @@ customElements.define('portfolio-header', class extends HTMLElement {
             <a href="#skills" class="nav-link">Skills</a>
             <a href="#projects" class="nav-link">Projects</a>
             <a href="#milestones" class="nav-link">Milestones</a>
+            <a href="#certifications" class="nav-link">Certifications</a>
             <a href="#contact" class="nav-link">Contact</a>
           </nav>
           <button class="hamburger" id="hamburger" aria-label="Toggle menu">
