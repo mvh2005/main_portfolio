@@ -36,6 +36,14 @@ customElements.define('portfolio-contact', class extends HTMLElement {
                   <p class="contact-value">vigneshgit2005</p>
                 </div>
               </a>
+              <a href="https://instagram.com/v_ignesh.ikky/"
+                 target="_blank" rel="noopener noreferrer" class="contact-card">
+                <span class="contact-icon">ig</span>
+                <div>
+                  <p class="contact-label">Instagram</p>
+                  <p class="contact-value">v_ignesh.ikky</p>
+                </div>
+              </a>
             </div>
 
             <form class="contact-form" id="contactForm" data-aos="fade-up" data-aos-delay="200">

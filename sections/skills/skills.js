@@ -22,9 +22,12 @@ customElements.define('portfolio-skills', class extends HTMLElement {
             <div class="skill-group" data-aos="fade-up" data-aos-delay="100">
               <h3 class="skill-group-title"><span class="skill-num">02</span> Frameworks &amp; Ecosystems</h3>
               <div class="skill-tags">
+                <span class="tag">ReactJS</span>
+                <span class="tag">Spring Boot</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">Tailwind CSS</span>
                 <span class="tag">NumPy</span>
                 <span class="tag">Pandas</span>
-                <span class="tag">Seaborn</span>
                 <span class="tag">Scikit-learn</span>
                 <span class="tag">Firebase</span>
                 <span class="tag">Responsive Web</span>

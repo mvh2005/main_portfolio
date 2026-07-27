@@ -10,16 +10,17 @@ customElements.define('portfolio-projects', class extends HTMLElement {
             <article class="project-card" data-aos="fade-up" data-aos-delay="0">
               <div class="project-number">01</div>
               <div class="project-status completed">Completed</div>
-              <h3>AI Movie Recommendation System</h3>
-              <p><strong>The Hook:</strong> A recommendation engine that helps users discover movies similar to their interests.</p>
+              <h3>Citizen360 AI – Civic Issue Resolution Platform</h3>
+              <p><strong>The Hook:</strong> An AI-powered civic platform that automates complaint routing to government departments and streamlines issue resolution for citizens, officers, and admins.</p>
               <div class="project-tech">
-                <span>Python</span>
-                <span>Machine Learning</span>
-                <span>Pandas</span>
-                <span>Scikit-learn</span>
+                <span>ReactJS</span>
+                <span>Tailwind CSS</span>
+                <span>Spring Boot</span>
+                <span>MongoDB</span>
+                <span>AI Routing</span>
               </div>
-              <p><strong>Core Impact:</strong> Uses similarity-based recommendation logic, data preprocessing, and model-driven ranking to make discovery faster and more personal.</p>
-              <a href="https://github.com/mvh2005/AI-Based-Movie-Recommendation-System.git"
+              <p><strong>Core Impact:</strong> Uses AI keyword analysis for automated department routing (Road, Sanitation, Water, Electricity, Parks), GPS & photo evidence capture, and real-time Officer & Admin analytics dashboards.</p>
+              <a href="https://github.com/mvh2005"
                  class="project-link" target="_blank" rel="noopener noreferrer">
                 GitHub Repository <span class="arrow">-&gt;</span>
               </a>
@@ -27,23 +28,6 @@ customElements.define('portfolio-projects', class extends HTMLElement {
 
             <article class="project-card" data-aos="fade-up" data-aos-delay="100">
               <div class="project-number">02</div>
-              <div class="project-status completed">Completed</div>
-              <h3>Birthday Message Generator</h3>
-              <p><strong>The Hook:</strong> A small utility that creates personalized birthday messages quickly.</p>
-              <div class="project-tech">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>Python</span>
-              </div>
-              <p><strong>Core Impact:</strong> Combines form-style inputs, message templates, and simple generation logic to produce friendly, reusable greetings.</p>
-              <a href="https://github.com/mvh2005/Birthday_Message-Generator.git"
-                 class="project-link" target="_blank" rel="noopener noreferrer">
-                GitHub Repository <span class="arrow">-&gt;</span>
-              </a>
-            </article>
-
-            <article class="project-card" data-aos="fade-up" data-aos-delay="200">
-              <div class="project-number">03</div>
               <div class="project-status completed">Completed</div>
               <h3>Aqua Tracker - Water Intake</h3>
               <p><strong>The Hook:</strong> A hydration tracker that makes daily water intake visible and easy to manage.</p>
@@ -59,9 +43,45 @@ customElements.define('portfolio-projects', class extends HTMLElement {
                 GitHub Repository <span class="arrow">-&gt;</span>
               </a>
             </article>
+
+            <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="project-number">03</div>
+              <div class="project-status completed">Completed</div>
+              <h3>AI Movie Recommendation System</h3>
+              <p><strong>The Hook:</strong> A recommendation engine that helps users discover movies similar to their interests.</p>
+              <div class="project-tech">
+                <span>Python</span>
+                <span>Machine Learning</span>
+                <span>Pandas</span>
+                <span>Scikit-learn</span>
+              </div>
+              <p><strong>Core Impact:</strong> Uses similarity-based recommendation logic, data preprocessing, and model-driven ranking to make discovery faster and more personal.</p>
+              <a href="https://github.com/mvh2005/AI-Based-Movie-Recommendation-System.git"
+                 class="project-link" target="_blank" rel="noopener noreferrer">
+                GitHub Repository <span class="arrow">-&gt;</span>
+              </a>
+            </article>
+
+            <article class="project-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="project-number">04</div>
+              <div class="project-status completed">Completed</div>
+              <h3>Birthday Message Generator</h3>
+              <p><strong>The Hook:</strong> A small utility that creates personalized birthday messages quickly.</p>
+              <div class="project-tech">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>Python</span>
+              </div>
+              <p><strong>Core Impact:</strong> Combines form-style inputs, message templates, and simple generation logic to produce friendly, reusable greetings.</p>
+              <a href="https://github.com/mvh2005/Birthday_Message-Generator.git"
+                 class="project-link" target="_blank" rel="noopener noreferrer">
+                GitHub Repository <span class="arrow">-&gt;</span>
+              </a>
+            </article>
           </div>
         </div>
       </section>
     `;
   }
 });
+

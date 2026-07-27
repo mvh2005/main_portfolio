@@ -7,7 +7,7 @@ customElements.define('portfolio-footer', class extends HTMLElement {
           <div class="footer-links">
             <a href="https://github.com/mvh2005" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href="https://www.linkedin.com/in/mara-vignesh-561942279/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-
+            <a href="https://instagram.com/v_ignesh.ikky" target="_blank" rel="noopener noreferrer">Instagram</a>
           </div>
         </div>
       </footer>
