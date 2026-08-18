@@ -1,5 +1,4 @@
-﻿<div align="center">
-  <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%2305030D'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='26' fill='%238B5CF6' text-anchor='middle'>MV</text></svg>" width="80" height="80" alt="Mara Vignesh Logo" />
+
   <h1>Mara Vignesh — 3D Interactive Developer Portfolio</h1>
   <p><strong>A futuristic 3D digital workspace & AI visualization built with React, Vite, Three.js, and React Three Fiber.</strong></p>
 
