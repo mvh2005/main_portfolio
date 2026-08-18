@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { Trophy, Star, Cpu, Activity, ExternalLink } from "lucide-react";
 
 const ACHIEVEMENTS = [
@@ -23,7 +23,7 @@ const ACHIEVEMENTS = [
     color: "#A855F7",
     title: "Generative AI Prototyping",
     desc: "Built and deployed Streamlit applications integrated with Google Gemini Flash API during the Saredufy Web Plus Academy internship, earning an industry-verified completion certificate.",
-    link: "./sections/certifications/Saredufy Certificate.pdf",
+    link: "/sections/certifications/Saredufy Certificate.pdf",
     linkLabel: "View Certificate",
   },
   {

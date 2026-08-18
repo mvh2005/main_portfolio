@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { Cloud, Cpu, Terminal, Sparkles, ShieldCheck, ExternalLink } from "lucide-react";
 
 const CERTS = [
@@ -34,7 +34,7 @@ const CERTS = [
     issuer: "Saredufy Web Plus Academy",
     title: "Generative AI Internship Certificate",
     verified: "Python & Gemini Flash API Prototyping",
-    link: "./sections/certifications/Saredufy Certificate.pdf",
+    link: "/sections/certifications/Saredufy Certificate.pdf",
     linkLabel: "View Certificate",
     color: "#E9D5FF",
   },
