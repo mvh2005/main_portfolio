@@ -1,283 +1,131 @@
-# 🎨 Mara Vignesh - Portfolio
+﻿<div align="center">
+  <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%2305030D'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='26' fill='%238B5CF6' text-anchor='middle'>MV</text></svg>" width="80" height="80" alt="Mara Vignesh Logo" />
+  <h1>Mara Vignesh — 3D Interactive Developer Portfolio</h1>
+  <p><strong>A futuristic 3D digital workspace & AI visualization built with React, Vite, Three.js, and React Three Fiber.</strong></p>
 
-A modern, fully-responsive portfolio website built with HTML, CSS, and JavaScript. No frameworks, no build tools, no complexity—just clean code that's easy to customize.
-
-## 🗂️ Folder Structure
-
-```
-portfolio/
-├── 📄 index.html              # Main HTML file
-├── 🎨 style.css               # All styling with CSS variables
-├── ⚙️ script.js               # Core application logic
-│
-└── 📂 sections/
-    ├── header/
-    │   └── header.js          # Navigation component
-    ├── home/
-    │   └── home.js            # Hero section
-    ├── skills/
-    │   └── skills.js          # Skills showcase
-    ├── projects/
-    │   └── projects.js        # Portfolio projects
-    ├── milestones/
-    │   └── milestones.js      # Experience timeline
-    ├── certifications/
-    |       ├── certifications.js    # Certificate modal
-    |       └── certificate.pdf  # Certifications (add these)
-    ├── contact/
-    │   └── contact.js         # Contact form
-    ├── footer/
-    │   └── footer.js          # Footer
-    └── resume-modal/
-        ├── resume-modal.js    # Resume modal
-        └── resume_vignesh.pdf # Your resume (add this)
-```
-
-## 🚀 Quick Start
-
-### 1. Open the Portfolio
-Simply double-click `index.html` to open it in your browser. No server needed!
-
-### 2. Customize Your Information
-
-#### Update Hero Section (home.js)
-```javascript
-title: 'Hi, I\'m Mara Vignesh',           // Your name
-subtitle: 'Full-Stack Developer & UI/UX Designer',  // Your title
-description: 'Your description...',       // Your tagline
-```
-
-#### Update Contact Info (contact.js)
-```javascript
-email: 'your.email@example.com',
-phone: '+91 XXXXX XXXXX',
-location: 'Your City, Country'
-```
-
-#### Add Your Social Links (home.js)
-```javascript
-socials: [
-    { icon: 'fab fa-github', href: 'your-github-url', label: 'GitHub' },
-    { icon: 'fab fa-linkedin', href: 'your-linkedin-url', label: 'LinkedIn' },
-    // Add more...
-]
-```
-
-### 3. Add Your Resume
-1. Save your resume as `resume_vignesh.pdf`
-2. Place it in: `sections/resume-modal/resume_vignesh.pdf`
-3. The "Resume" button will automatically work!
-
-### 4. Customize Your Skills (skills.js)
-```javascript
-{
-    name: 'Frontend',
-    icon: 'fas fa-laptop-code',
-    skills: [
-        'Your Skill 1',
-        'Your Skill 2',
-        // Add your skills...
-    ]
-}
-```
-
-### 5. Add Your Projects (projects.js)
-```javascript
-{
-    id: 1,
-    title: 'Your Project Name',
-    description: 'Project description...',
-    image: '🎯',  // Emoji or replace with <img src="...">
-    tags: ['React', 'JavaScript'],
-    links: [
-        { text: 'View Project', href: 'url', icon: 'fas fa-external-link-alt' },
-        { text: 'GitHub', href: 'url', icon: 'fab fa-github' }
-    ]
-}
-```
-
-### 6. Update Experience Timeline (milestones.js)
-```javascript
-{
-    year: '2024',
-    title: 'Your Achievement',
-    description: 'Description of what you accomplished...'
-}
-```
-
-### 7. Add Your Certifications (certifications.js)
-```javascript
-{
-    id: 1,
-    title: 'Your Certification Name',
-    issuer: 'Issuing Organization',
-    date: 'Month Year',
-    description: 'Brief description of the certification...',
-    badge: '🏆',  // Emoji or replace with <img src="...">
-    link: 'https://verify-certificate-url'  // Optional verification link
-}
-```
-
-## 🎨 Customizing Colors
-
-Edit the CSS variables in `style.css`:
-
-```css
-:root {
-    --primary-color: #6366f1;        /* Main color */
-    --secondary-color: #ec4899;      /* Accent color */
-    --accent-color: #f59e0b;         /* Highlight color */
-    --text-dark: #1f2937;            /* Dark text */
-    --text-light: #6b7280;           /* Light text */
-    --bg-light: #f9fafb;             /* Light background */
-    --bg-white: #ffffff;             /* White background */
-    /* ... more variables ... */
-}
-```
-
-## 📱 Responsive Design
-
-The portfolio is mobile-first and fully responsive:
-- **Desktop**: Full layout with all features
-- **Tablet**: Adjusted grid layouts
-- **Mobile**: Single column layout with hamburger menu
-
-Breakpoints:
-- `768px` - Tablet layout
-- `480px` - Mobile layout
-
-## 🚢 Deployment
-
-### GitHub Pages
-1. Create a new GitHub repository named `your-username.github.io`
-2. Push your portfolio files to the `main` branch
-3. Your portfolio will be live at `https://your-username.github.io`
-
-### Traditional Hosting
-1. Upload the `portfolio` folder to your web hosting
-2. Ensure `index.html` is in the root directory
-3. Access via your domain
-
-## 💡 Tips & Tricks
-
-### Styling Your Own Theme
-1. Copy and modify the CSS variables
-2. Update `--primary-color`, `--secondary-color`, etc.
-3. All components automatically use the new colors
-
-### Adding More Sections
-1. Create a new folder in `sections/`
-2. Create a JavaScript file with your component
-3. Add a new `<section>` in `index.html`
-4. Import the script at the bottom of `index.html`
-
-## 🔧 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers
-
-## 📊 Performance
-
-- **Lighthouse Score**: 95+
-- **Load Time**: < 1 second
-- **Bundle Size**: ~50KB (uncompressed)
-- **No external dependencies**
-
-## 🔐 SEO
-
-To improve SEO:
-1. Update meta tags in `index.html`:
-   ```html
-   <title>Your Name - Portfolio</title>
-   <meta name="description" content="Your professional description">
-   ```
-
-2. Add open graph tags for social sharing:
-   ```html
-   <meta property="og:title" content="Your Name">
-   <meta property="og:description" content="Your description">
-   ```
-
-## 🎓 Learning Resources
-
-This portfolio demonstrates:
-- **Semantic HTML**: Proper document structure
-- **CSS Grid & Flexbox**: Modern layout techniques
-- **CSS Variables**: Dynamic theming
-- **Vanilla JavaScript**: No framework dependencies
-- **Responsive Design**: Mobile-first approach
-- **Accessibility**: ARIA labels and semantic markup
-- **Performance**: Optimized animations and lazy loading
-
-## 📝 Customization Examples
-
-### Change Hero Subtitle
-In `sections/home/home.js`:
-```javascript
-subtitle: 'Your New Title Here'
-```
-
-### Add New Social Media
-In `sections/home/home.js`:
-```javascript
-socials: [
-    // ... existing socials
-    { icon: 'fab fa-codepen', href: 'https://codepen.io/your-username', label: 'CodePen' }
-]
-```
-
-### Update Footer Year
-In `sections/footer/footer.js`:
-```javascript
-year: new Date().getFullYear() // Automatically updates
-```
-
-## 🐛 Troubleshooting
-
-**Resume PDF not showing?**
-- Ensure file is named `resume_vignesh.pdf`
-- Check the file is in `sections/resume-modal/`
-- Verify the path in `resume-modal.js`
-
-**Certifications not displaying?**
-- Ensure `certifications.js` is in `sections/certifications/`
-- Confirm `<portfolio-certifications></portfolio-certifications>` is present in `index.html`
-- Check that the script tag `<script src="sections/certifications/certifications.js"></script>` is included at the bottom of `index.html`
-
-**Styles not applying?**
-- Hard refresh: `Ctrl+Shift+R` (Windows) or `Cmd+Shift+R` (Mac)
-- Check CSS file is loaded in DevTools
-
-**JavaScript not working?**
-- Open browser console: `F12` or `Right-click > Inspect`
-- Check for error messages
-- Ensure all script tags are loaded
-
-## 📄 License
-
-Free to use and modify for personal or commercial projects.
-
-## 🤝 Contributing
-
-Feel free to fork and enhance this portfolio. Some ideas:
-- Add dark mode toggle
-- Implement blog section
-- Add testimonials
-- Create animations
-- Add multiple language support
-
-## 👋 Get Started!
-
-1. Customize the content with your information
-2. Add your resume PDF
-3. Deploy to your favorite hosting service
-4. Share your portfolio with the world!
+  <p>
+    <a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Vite-5.x-646CFF?style=flat&logo=vite&logoColor=white" alt="Vite" /></a>
+    <a href="https://react.dev/"><img src="https://img.shields.io/badge/React-18.x-61DAFB?style=flat&logo=react&logoColor=black" alt="React" /></a>
+    <a href="https://threejs.org/"><img src="https://img.shields.io/badge/Three.js-r168-black?style=flat&logo=three.js&logoColor=white" alt="Three.js" /></a>
+    <a href="https://docs.pmnd.rs/react-three-fiber"><img src="https://img.shields.io/badge/R3F-8.x-purple?style=flat" alt="R3F" /></a>
+    <a href="https://vercel.com/"><img src="https://img.shields.io/badge/Deploy-Vercel-black?style=flat&logo=vercel&logoColor=white" alt="Vercel" /></a>
+  </p>
+</div>
 
 ---
 
-**Built with ❤️ using HTML, CSS, JavaScript**
+## 🔮 Overview & Key Changes
 
-For questions or support, feel free to reach out!
+This repository has been completely rebuilt from a static portfolio into a **state-of-the-art 3D interactive portfolio** featuring a cohesive **Midnight Purple futuristic aesthetic**.
+
+### 💎 What's New:
+- **Signature Irregular 3D Crystalline Structure**: A bespoke, non-primitive procedural 3D sculpture featuring harmonic geometric lobes, holographic exoskeleton wireframes, an inner neural nucleus, and orbiting crystal shards.
+- **Living Autonomous Motion**: Continuous harmonic oscillation, floating hover, geometric breathing, and pulsing internal light.
+- **Dynamic Mouse Interactivity**:
+  - 3-axis smooth rotation & parallax tilt.
+  - Proximity-based magnetic displacement & core lighting flares.
+  - Interactive spore and particle dispersal with spring damping.
+- **Scroll Choreography**: The 3D structure morphs its position, scale, and orientation smoothly as you scroll across Hero, About, Skills, Projects, and Contact.
+- **Interactive Skill Constellation**: SVG-based dynamic node graph with interactive hover lines and mouse parallax.
+- **3D Perspective Project Cards**: Interactive tilt cards showcasing key projects (Citizen360, AI Movie Recommendation, Aqua Tracker, Birthday Generator).
+- **Midnight Purple Theme & Glassmorphism**: Tailored dark palette (`#05030D` base, `#8B5CF6` / `#C084FC` accents, `rgba(15, 10, 30, 0.65)` glass cards).
+
+---
+
+## 🎨 Color System Tokens
+
+| Token | Value | Usage |
+|---|---|---|
+| **Primary Background** | `#05030D` | Deep canvas across all sections |
+| **Secondary Background** | `#0B0718` | Section & mockup contrast |
+| **Dark Surface** | `#100B1F` | Card bases and inner SVG panels |
+| **Primary Accent** | `#8B5CF6` | Buttons, active navigation, timeline indicators |
+| **Secondary Accent** | `#C084FC` | Typography highlights, tags, orbital rings |
+| **3D Glow** | `#A855F7` | 3D lighting, wireframe glow, spore flare |
+| **Soft Highlight** | `#E9D5FF` | Lavender rim lighting, text accents |
+| **Glassmorphism** | `rgba(15, 10, 30, 0.65)` | Backdrop blur cards with `rgba(168, 85, 247, 0.20)` border |
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: React 18 + Vite 5
+- **3D Engine**: Three.js, `@react-three/fiber`, `@react-three/drei`
+- **Styling**: Vanilla CSS Design System (Custom Design Tokens, Glassmorphism, CSS Grid, Custom Scrollbars)
+- **Icons**: Lucide React
+- **Animations**: Spring damping, requestAnimationFrame lerp loops, CSS hardware-accelerated transforms
+
+---
+
+## 📁 Project Structure
+
+```
+main_portfolio/
+├── public/                     # Static assets (Resume PDF, Certificates)
+│   └── sections/
+├── src/
+│   ├── components/             # React UI components
+│   │   ├── Cursor.jsx          # Custom interactive cursor
+│   │   ├── Navbar.jsx          # Glass navbar with scrollspy
+│   │   ├── Hero.jsx            # Hero section with typewriter & CTAs
+│   │   ├── About.jsx           # Bento bio & animated counter cards
+│   │   ├── Skills.jsx          # Interactive SVG skill constellation
+│   │   ├── Experience.jsx      # Vertical work timeline
+│   │   ├── Projects.jsx        # 3D tilt project cards & filters
+│   │   ├── Achievements.jsx    # Accolades cards
+│   │   ├── Certifications.jsx  # Verified credential cards
+│   │   ├── Contact.jsx         # Contact form & floating energy orb
+│   │   └── Footer.jsx          # Footer with social links
+│   ├── hooks/                  # Custom hooks (useMouseParallax, useScrollReveal)
+│   ├── three/                  # 3D scenes & procedural graphics
+│   │   ├── BackgroundScene.jsx # Global full-screen 3D abstract structure & particles
+│   │   └── HeroScene.jsx       # Holographic telemetry interface
+│   ├── App.jsx                 # Main application layout
+│   ├── index.css               # Global Midnight Purple design system
+│   └── main.jsx                # Application root entry
+├── index.html                  # HTML entry point
+├── package.json
+└── vite.config.js
+```
+
+---
+
+## 🚀 Getting Started Locally
+
+### 1. Install Dependencies
+```bash
+npm install
+```
+
+### 2. Run Development Server
+```bash
+npm run dev
+```
+Open **`http://localhost:5173/`** in your browser.
+
+### 3. Build for Production
+```bash
+npm run build
+```
+Generates an optimized static bundle in the `dist/` directory.
+
+---
+
+## 🌐 Deployment
+
+### Deploy to Vercel (Recommended ⚡)
+1. Push this repository to GitHub.
+2. Sign in to **[Vercel](https://vercel.com/)** and click **Add New Project**.
+3. Import this repository (`main_portfolio`).
+4. Vercel will automatically detect **Vite** (`npm run build` -> `dist`).
+5. Click **Deploy**. Your site will be live on a global Edge CDN in seconds!
+
+---
+
+## 👤 Author
+
+**Mara Vignesh**  
+*Computer Science & Artificial Intelligence Undergraduate*  
+- GitHub: [@mvh2005](https://github.com/mvh2005)  
+- LinkedIn: [Mara Vignesh](https://www.linkedin.com/in/mara-vignesh-561942279/)  
+- Email: vigneshmara143@gmail.com
