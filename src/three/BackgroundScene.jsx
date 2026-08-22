@@ -1,11 +1,12 @@
-﻿import React, { useRef, useMemo, useEffect } from "react";
+import React, { useRef, useMemo, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
 /* ============================================================
-   GLOBAL BACKGROUND SCENE — MIDNIGHT PURPLE FUTURISTIC THEME
+   GLOBAL BACKGROUND SCENE — MIDNIGHT FUTURISTIC AI THEME
    Signature Feature: Large Irregular Abstract 3D Structure
-   Autonomous Living Motion + Mouse Interaction + Scroll Morphing
+   + Perspective Dot Grid Wave + Decorative Polyhedron
+   + Cyan/Blue/Violet Ambient Atmosphere
    ============================================================ */
 
 const globalMouse = { x: 0, y: 0, vx: 0, vy: 0 };
@@ -34,11 +35,8 @@ if (typeof window !== "undefined") {
 
 /* ============================================================
    PROCEDURAL IRREGULAR ABSTRACT CRYSTALLINE GEOMETRY
-   Generates a complex, asymmetric, multi-lobed organic crystal
-   with sharp facets, undulating curves, and neural protrusions.
    ============================================================ */
 function createIrregularCrystalGeometry(detail = 4) {
-  // Base icosahedron with subdivided tessellation
   const base = new THREE.IcosahedronGeometry(1.6, detail);
   const pos = base.attributes.position;
   const count = pos.count;
@@ -50,17 +48,15 @@ function createIrregularCrystalGeometry(detail = 4) {
     v.fromBufferAttribute(pos, i);
 
     const radius = v.length();
-    const theta = Math.atan2(v.z, v.x); // azimuth angle
-    const phi = Math.acos(Math.max(Math.min(v.y / radius, 1), -1)); // inclination
+    const theta = Math.atan2(v.z, v.x);
+    const phi = Math.acos(Math.max(Math.min(v.y / radius, 1), -1));
 
-    // Multi-frequency asymmetric crystalline lobes and neural spikes
     const lobe1 = Math.sin(theta * 3.0 + phi * 2.0) * 0.35;
     const lobe2 = Math.cos(theta * 2.0 - phi * 4.0) * 0.25;
     const lobe3 = Math.sin(phi * 5.0 + theta) * 0.18;
     const spike = Math.pow(Math.max(Math.sin(theta * 4.0) * Math.cos(phi * 3.0), 0), 3.0) * 0.45;
     const indentation = -Math.pow(Math.max(Math.cos(theta * 2.0 + 1.5) * Math.sin(phi * 2.0), 0), 2.0) * 0.35;
 
-    // Organic twist along Y axis
     const twist = v.y * 0.45;
     const cosT = Math.cos(twist);
     const sinT = Math.sin(twist);
@@ -68,12 +64,11 @@ function createIrregularCrystalGeometry(detail = 4) {
     const totalDisp = 1.0 + lobe1 + lobe2 + lobe3 + spike + indentation;
     v.multiplyScalar(totalDisp);
 
-    // Apply helical twist
     const rx = v.x * cosT - v.z * sinT;
     const rz = v.x * sinT + v.z * cosT;
 
     newPositions[i * 3 + 0] = rx;
-    newPositions[i * 3 + 1] = v.y * 1.15; // elongated vertical proportion
+    newPositions[i * 3 + 1] = v.y * 1.15;
     newPositions[i * 3 + 2] = rz;
   }
 
@@ -94,7 +89,6 @@ function SignatureAbstractStructure({ isMobile }) {
   const coreRef = useRef();
   const lightRef = useRef();
 
-  // Custom procedural irregular geometries
   const { crystalGeom, innerGeom } = useMemo(() => {
     const detail = isMobile ? 3 : 4;
     const main = createIrregularCrystalGeometry(detail);
@@ -102,7 +96,6 @@ function SignatureAbstractStructure({ isMobile }) {
     return { crystalGeom: main, innerGeom: inner };
   }, [isMobile]);
 
-  // Orbiting crystal satellite shards
   const shards = useMemo(() => {
     const count = isMobile ? 8 : 15;
     const list = [];
@@ -113,13 +106,12 @@ function SignatureAbstractStructure({ isMobile }) {
       const speed = 0.3 + Math.random() * 0.5 * (i % 2 === 0 ? 1 : -1);
       const rotSpeed = [Math.random() * 0.02, Math.random() * 0.02, Math.random() * 0.02];
       const scale = 0.08 + Math.random() * 0.14;
-      const type = i % 3; // 0: octahedron, 1: tetrahedron, 2: icosahedron
+      const type = i % 3;
       list.push({ angle, radius, height, speed, rotSpeed, scale, type });
     }
     return list;
   }, [isMobile]);
 
-  // Orbiting Bio-Digital Spore Swarm
   const spores = useMemo(() => {
     const count = isMobile ? 35 : 85;
     const pos = new Float32Array(count * 3);
@@ -143,7 +135,6 @@ function SignatureAbstractStructure({ isMobile }) {
     return g;
   }, [spores]);
 
-  // Internal neural synaptic nodes and filaments
   const { neuralNodes, filamentGeo } = useMemo(() => {
     const count = isMobile ? 8 : 16;
     const nodes = [];
@@ -176,32 +167,25 @@ function SignatureAbstractStructure({ isMobile }) {
     return { neuralNodes: nodes, filamentGeo: geo };
   }, [isMobile]);
 
-  // Refs for individual shards to animate efficiently
   const shardRefs = useRef([]);
 
-  // Dynamic animation loop
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
     const group = groupRef.current;
     if (!group) return;
 
-    // --- 1. MOUSE INTERACTION & SPRING LERP ---
     const mx = smoothMouse.x;
     const my = smoothMouse.y;
 
-    // Screen distance from mouse to structure base center
     const targetScreenX = isMobile ? 0 : 0.45;
     const distToMouse = Math.hypot(mx - targetScreenX, my - 0.1);
-    const proximity = Math.max(1.0 - distToMouse * 1.1, 0.0); // 0 to 1 as mouse gets close
+    const proximity = Math.max(1.0 - distToMouse * 1.1, 0.0);
 
-    // --- 2. SCROLL CHOREOGRAPHY (Continuous Section Morphing) ---
     const sp = scrollProgress;
 
-    // Smooth section-based targets
     let targetX, targetY, targetZ, targetScale, targetRotX, targetRotY, targetRotZ;
 
     if (sp < 0.22) {
-      // SECTION: HERO
       const p = sp / 0.22;
       targetX = THREE.MathUtils.lerp(isMobile ? 0 : 3.0, isMobile ? 0 : 2.4, p);
       targetY = THREE.MathUtils.lerp(0.1, -0.3, p);
@@ -211,7 +195,6 @@ function SignatureAbstractStructure({ isMobile }) {
       targetRotY = t * 0.12 + mx * 0.6;
       targetRotZ = p * 0.2;
     } else if (sp < 0.45) {
-      // SECTION: ABOUT
       const p = (sp - 0.22) / 0.23;
       targetX = THREE.MathUtils.lerp(isMobile ? 0 : 2.4, isMobile ? 0 : 1.6, p);
       targetY = THREE.MathUtils.lerp(-0.3, -0.6, p);
@@ -221,7 +204,6 @@ function SignatureAbstractStructure({ isMobile }) {
       targetRotY = t * 0.1 + mx * 0.5;
       targetRotZ = 0.2 + p * 0.3;
     } else if (sp < 0.68) {
-      // SECTION: SKILLS
       const p = (sp - 0.45) / 0.23;
       targetX = THREE.MathUtils.lerp(isMobile ? 0 : 1.6, 0.0, p);
       targetY = THREE.MathUtils.lerp(-0.6, 0.2, p);
@@ -231,7 +213,6 @@ function SignatureAbstractStructure({ isMobile }) {
       targetRotY = t * 0.08 + mx * 0.4;
       targetRotZ = 0.5 - p * 0.3;
     } else if (sp < 0.88) {
-      // SECTION: PROJECTS / EXPERIENCE
       const p = (sp - 0.68) / 0.2;
       targetX = THREE.MathUtils.lerp(0.0, isMobile ? 0 : -2.4, p);
       targetY = THREE.MathUtils.lerp(0.2, -0.8, p);
@@ -241,7 +222,6 @@ function SignatureAbstractStructure({ isMobile }) {
       targetRotY = t * 0.09 + mx * 0.45;
       targetRotZ = 0.2 + p * 0.4;
     } else {
-      // SECTION: CONTACT
       const p = (sp - 0.88) / 0.12;
       targetX = THREE.MathUtils.lerp(isMobile ? 0 : -2.4, 0.0, p);
       targetY = THREE.MathUtils.lerp(-0.8, 0.8, p);
@@ -252,35 +232,28 @@ function SignatureAbstractStructure({ isMobile }) {
       targetRotZ = 0.6 - p * 0.4;
     }
 
-    // Floating sine-wave autonomous oscillation
     const floatY = Math.sin(t * 0.42) * 0.25 + Math.cos(t * 0.28) * 0.12;
     const floatX = Math.sin(t * 0.31) * 0.15;
     const floatZ = Math.cos(t * 0.36) * 0.18;
 
-    // Mouse Parallax & Magnetic Repulsion
     const parallaxX = mx * 1.35 - (proximity > 0.1 ? (mx - targetScreenX) * 0.4 : 0);
     const parallaxY = my * 0.95 - (proximity > 0.1 ? (my - 0.1) * 0.35 : 0);
 
-    // Spring smooth interpolation
     group.position.x += (targetX + floatX + parallaxX - group.position.x) * 0.045;
     group.position.y += (targetY + floatY + parallaxY - group.position.y) * 0.045;
     group.position.z += (targetZ + floatZ - group.position.z) * 0.045;
 
-    // Multi-axis rotation (Autonomous idle + Mouse tilt)
     const tiltX = my * 0.38;
     const tiltZ = -mx * 0.25;
     group.rotation.x += (targetRotX + tiltX + Math.sin(t * 0.18) * 0.08 - group.rotation.x) * 0.04;
     group.rotation.y += (targetRotY + Math.cos(t * 0.15) * 0.05 - group.rotation.y) * 0.04;
     group.rotation.z += (targetRotZ + tiltZ + Math.sin(t * 0.22) * 0.06 - group.rotation.z) * 0.04;
 
-    // Organic Breathing / Pulsing Scale
     const breathe = 1.0 + Math.sin(t * 1.2) * 0.028 + Math.sin(t * 2.5) * 0.012;
     const finalScale = targetScale * breathe;
     group.scale.set(finalScale, finalScale, finalScale);
 
-    // --- 3. INTERNAL CORE & LIGHTING FLARE ---
     if (lightRef.current) {
-      // Flare brightness when mouse approaches or during breathing
       const baseIntensity = 1.6 + Math.sin(t * 1.8) * 0.4;
       const flareIntensity = baseIntensity + proximity * 2.8;
       lightRef.current.intensity = THREE.MathUtils.lerp(lightRef.current.intensity, flareIntensity, 0.1);
@@ -291,12 +264,11 @@ function SignatureAbstractStructure({ isMobile }) {
       coreRef.current.scale.set(coreScale, coreScale, coreScale);
     }
 
-    // --- 4. ORBITING CRYSTAL SHARDS ---
     shardRefs.current.forEach((shardMesh, i) => {
       if (!shardMesh) return;
       const s = shards[i];
       const curAngle = s.angle + t * s.speed;
-      const r = s.radius + (proximity * 0.4); // expand slightly on proximity
+      const r = s.radius + (proximity * 0.4);
       shardMesh.position.x = Math.cos(curAngle) * r;
       shardMesh.position.z = Math.sin(curAngle) * r;
       shardMesh.position.y = s.height + Math.sin(t * 0.8 + s.angle) * 0.3;
@@ -305,7 +277,6 @@ function SignatureAbstractStructure({ isMobile }) {
       shardMesh.rotation.z += s.rotSpeed[2];
     });
 
-    // --- 5. ORBITING BIO-DIGITAL SPORES ---
     if (sporeGeo.attributes.position) {
       const posArr = sporeGeo.attributes.position.array;
       for (let i = 0; i < spores.count; i++) {
@@ -352,16 +323,16 @@ function SignatureAbstractStructure({ isMobile }) {
         />
       </mesh>
 
-      {/* 3. INNER NEURAL CAVITY MESH */}
+      {/* 3. INNER NEURAL CAVITY MESH — subtle cyan tint added */}
       <mesh geometry={innerGeom} scale={[0.72, 0.72, 0.72]}>
         <meshStandardMaterial
-          color="#8B5CF6"
-          emissive="#7C3AED"
-          emissiveIntensity={0.8}
+          color="#0EA5E9"
+          emissive="#0369A1"
+          emissiveIntensity={0.7}
           roughness={0.3}
           metalness={0.7}
           transparent
-          opacity={0.5}
+          opacity={0.45}
           wireframe={true}
         />
       </mesh>
@@ -383,14 +354,14 @@ function SignatureAbstractStructure({ isMobile }) {
           <mesh key={i} position={n}>
             <sphereGeometry args={[0.045, 8, 8]} />
             <meshBasicMaterial
-              color={i % 2 === 0 ? "#C084FC" : "#E9D5FF"}
+              color={i % 2 === 0 ? "#22D3EE" : "#E9D5FF"}
               blending={THREE.AdditiveBlending}
             />
           </mesh>
         ))}
         <lineSegments geometry={filamentGeo}>
           <lineBasicMaterial
-            color="#A855F7"
+            color="#06B6D4"
             transparent
             opacity={0.4}
             blending={THREE.AdditiveBlending}
@@ -450,10 +421,232 @@ function SignatureAbstractStructure({ isMobile }) {
 }
 
 /* ============================================================
+   NEW: PERSPECTIVE DOT-GRID WAVE
+   3D perspective plane of dots with animated sine-wave displacement.
+   Positioned at the bottom of the hero section in 3D space.
+   ============================================================ */
+function PerspectiveDotGridWave({ isMobile }) {
+  const meshRef = useRef();
+
+  const { positions, originalY, count, cols, rows } = useMemo(() => {
+    const cols = isMobile ? 28 : 52;
+    const rows = isMobile ? 18 : 32;
+    const count = cols * rows;
+    const pos = new Float32Array(count * 3);
+    const origY = new Float32Array(count);
+
+    // Span the grid across 3D space with perspective foreshortening
+    const xSpan = 22;
+    const zSpanNear = 2.0;
+    const zSpanFar = -8.0;
+
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const idx = r * cols + c;
+        // t goes 0 (far back) to 1 (near camera bottom)
+        const t = r / (rows - 1);
+        // Perspective: spread wider as we come closer
+        const xScale = THREE.MathUtils.lerp(0.3, 1.0, t);
+        const x = ((c / (cols - 1)) - 0.5) * xSpan * xScale;
+        const z = THREE.MathUtils.lerp(zSpanFar, zSpanNear, t);
+        // Y base: angled plane going down toward viewer
+        const y = THREE.MathUtils.lerp(1.5, -4.2, t);
+
+        pos[idx * 3 + 0] = x;
+        pos[idx * 3 + 1] = y;
+        pos[idx * 3 + 2] = z;
+        origY[idx] = y;
+      }
+    }
+
+    return { positions: pos, originalY: origY, count, cols, rows };
+  }, [isMobile]);
+
+  const geo = useMemo(() => {
+    const g = new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.BufferAttribute(new Float32Array(count * 3), 3));
+    return g;
+  }, [count]);
+
+  const origPositions = useMemo(() => Float32Array.from(positions), [positions]);
+
+  useFrame((state) => {
+    const t = state.clock.getElapsedTime();
+    const pos = geo.attributes.position.array;
+
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const idx = r * cols + c;
+        const i3 = idx * 3;
+        // Wave displacement — gentle rolling sine across X and Z
+        const waveX = Math.sin(c * 0.35 + t * 0.38) * 0.14;
+        const waveZ = Math.cos(r * 0.45 + t * 0.28) * 0.10;
+        const combinedWave = waveX + waveZ;
+
+        pos[i3 + 0] = origPositions[i3 + 0];
+        pos[i3 + 1] = originalY[idx] + combinedWave;
+        pos[i3 + 2] = origPositions[i3 + 2];
+      }
+    }
+    geo.attributes.position.needsUpdate = true;
+  });
+
+  return (
+    <points ref={meshRef} geometry={geo}>
+      <pointsMaterial
+        size={isMobile ? 0.045 : 0.038}
+        color="#06B6D4"
+        transparent
+        opacity={0.28}
+        sizeAttenuation
+        depthWrite={false}
+        blending={THREE.AdditiveBlending}
+      />
+    </points>
+  );
+}
+
+/* ============================================================
+   NEW: DECORATIVE WIREFRAME POLYHEDRON + ORBITAL RINGS
+   Small futuristic geometric object in the upper-right area.
+   ============================================================ */
+function DecorativePolyhedron({ isMobile }) {
+  const groupRef = useRef();
+  const polyRef = useRef();
+  const ring1Ref = useRef();
+  const ring2Ref = useRef();
+  const ring3Ref = useRef();
+  const glowLightRef = useRef();
+
+  // Position: upper-right of the global scene, separate from the main monolith
+  const basePos = isMobile ? [0, 3.2, -3] : [4.8, 3.5, -2.5];
+
+  useFrame((state) => {
+    const t = state.clock.getElapsedTime();
+    const group = groupRef.current;
+    if (!group) return;
+
+    // Gentle float
+    group.position.y = basePos[1] + Math.sin(t * 0.55) * 0.22 + Math.cos(t * 0.33) * 0.10;
+    group.position.x = basePos[0] + Math.sin(t * 0.28) * 0.12;
+
+    // Slow rotation of the polyhedron itself
+    if (polyRef.current) {
+      polyRef.current.rotation.x = t * 0.09;
+      polyRef.current.rotation.y = t * 0.14;
+      polyRef.current.rotation.z = t * 0.07;
+    }
+
+    // Independent orbital ring rotations
+    if (ring1Ref.current) {
+      ring1Ref.current.rotation.z = t * 0.18;
+      ring1Ref.current.rotation.x = Math.PI / 3.5 + Math.sin(t * 0.15) * 0.05;
+    }
+    if (ring2Ref.current) {
+      ring2Ref.current.rotation.z = -t * 0.13;
+      ring2Ref.current.rotation.y = t * 0.10;
+    }
+    if (ring3Ref.current) {
+      ring3Ref.current.rotation.y = t * 0.16;
+      ring3Ref.current.rotation.x = Math.sin(t * 0.20) * 0.12;
+    }
+
+    // Soft glow pulse
+    if (glowLightRef.current) {
+      glowLightRef.current.intensity = 0.6 + Math.sin(t * 1.4) * 0.2;
+    }
+  });
+
+  return (
+    <group ref={groupRef} position={basePos}>
+      {/* Core wireframe icosahedron — cyan/violet */}
+      <mesh ref={polyRef}>
+        <icosahedronGeometry args={[0.42, 1]} />
+        <meshBasicMaterial
+          color="#22D3EE"
+          wireframe
+          transparent
+          opacity={0.55}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+
+      {/* Inner solid fill — very subtle */}
+      <mesh>
+        <icosahedronGeometry args={[0.38, 1]} />
+        <meshStandardMaterial
+          color="#0C1A2E"
+          emissive="#0E7490"
+          emissiveIntensity={0.4}
+          roughness={0.5}
+          metalness={0.8}
+          transparent
+          opacity={0.35}
+        />
+      </mesh>
+
+      {/* Violet wireframe overlay — second layer */}
+      <mesh>
+        <icosahedronGeometry args={[0.50, 0]} />
+        <meshBasicMaterial
+          color="#8B5CF6"
+          wireframe
+          transparent
+          opacity={0.22}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+
+      {/* Orbital ring 1 — cyan */}
+      <mesh ref={ring1Ref} rotation={[Math.PI / 3.5, 0, 0]}>
+        <torusGeometry args={[0.82, 0.008, 8, 64]} />
+        <meshBasicMaterial
+          color="#06B6D4"
+          transparent
+          opacity={0.55}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+
+      {/* Orbital ring 2 — electric blue */}
+      <mesh ref={ring2Ref} rotation={[-Math.PI / 4, Math.PI / 5, 0]}>
+        <torusGeometry args={[1.05, 0.006, 8, 72]} />
+        <meshBasicMaterial
+          color="#3B82F6"
+          transparent
+          opacity={0.42}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+
+      {/* Orbital ring 3 — violet */}
+      <mesh ref={ring3Ref} rotation={[0, Math.PI / 4, Math.PI / 5]}>
+        <torusGeometry args={[1.28, 0.005, 8, 80]} />
+        <meshBasicMaterial
+          color="#A855F7"
+          transparent
+          opacity={0.30}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+
+      {/* Soft cyan point glow */}
+      <pointLight
+        ref={glowLightRef}
+        color="#06B6D4"
+        intensity={0.7}
+        distance={6}
+        decay={2}
+      />
+    </group>
+  );
+}
+
+/* ============================================================
    BACKGROUND PARTICLES & AMBIENT DEPTH LAYERS
    ============================================================ */
 
-/* ---- Layer 1: Distant Deep Particles (5% Parallax) ---- */
+/* ---- Layer 1: Distant Deep Particles — now cyan/blue ---- */
 function DeepBackgroundParticles({ count = 400 }) {
   const meshRef = useRef();
 
@@ -497,19 +690,19 @@ function DeepBackgroundParticles({ count = 400 }) {
   return (
     <points ref={meshRef} geometry={geo}>
       <pointsMaterial
-        size={0.07}
+        size={0.065}
         sizeAttenuation
         transparent
-        opacity={0.45}
+        opacity={0.38}
         depthWrite={false}
         blending={THREE.AdditiveBlending}
-        color="#8B5CF6"
+        color="#22D3EE"
       />
     </points>
   );
 }
 
-/* ---- Layer 2: Foreground Ambient Dust Particles (50% Parallax) ---- */
+/* ---- Layer 2: Foreground Ambient Dust Particles — now light-cyan ---- */
 function ForegroundFloatingParticles({ count = 120 }) {
   const meshRef = useRef();
 
@@ -519,7 +712,7 @@ function ForegroundFloatingParticles({ count = 120 }) {
     for (let i = 0; i < count; i++) {
       pos[i * 3 + 0] = (Math.random() - 0.5) * 26;
       pos[i * 3 + 1] = (Math.random() - 0.5) * 20;
-      pos[i * 3 + 2] = 2.0 + Math.random() * 5.0; // close to camera
+      pos[i * 3 + 2] = 2.0 + Math.random() * 5.0;
       ph[i] = Math.random() * Math.PI * 2;
     }
     return { positions: pos, phases: ph };
@@ -551,19 +744,19 @@ function ForegroundFloatingParticles({ count = 120 }) {
   return (
     <points ref={meshRef} geometry={geo}>
       <pointsMaterial
-        size={0.09}
+        size={0.07}
         sizeAttenuation
         transparent
-        opacity={0.55}
+        opacity={0.42}
         depthWrite={false}
         blending={THREE.AdditiveBlending}
-        color="#E9D5FF"
+        color="#67E8F9"
       />
     </points>
   );
 }
 
-/* ---- Ambient Neural Web in Background ---- */
+/* ---- Ambient Neural Web in Background — now blue/cyan ---- */
 function AmbientNeuralNetwork() {
   const groupRef = useRef();
 
@@ -624,20 +817,20 @@ function AmbientNeuralNetwork() {
     <group ref={groupRef}>
       <points geometry={nodeGeo}>
         <pointsMaterial
-          size={0.08}
+          size={0.07}
           sizeAttenuation
           transparent
-          opacity={0.35}
+          opacity={0.30}
           depthWrite={false}
           blending={THREE.AdditiveBlending}
-          color="#A855F7"
+          color="#06B6D4"
         />
       </points>
       <lineSegments geometry={lineGeo}>
         <lineBasicMaterial
-          color="#6D28D9"
+          color="#1D4ED8"
           transparent
-          opacity={0.09}
+          opacity={0.08}
           blending={THREE.AdditiveBlending}
         />
       </lineSegments>
@@ -645,7 +838,7 @@ function AmbientNeuralNetwork() {
   );
 }
 
-/* ---- Ambient Scene Lights ---- */
+/* ---- Ambient Scene Lights — added cyan directional light ---- */
 function SceneLighting() {
   const mouseLightRef = useRef();
 
@@ -657,10 +850,17 @@ function SceneLighting() {
 
   return (
     <>
-      <ambientLight intensity={0.35} />
-      <directionalLight position={[6, 8, 8]} intensity={1.2} color="#C084FC" />
-      <directionalLight position={[-8, -5, -6]} intensity={0.8} color="#8B5CF6" />
-      <pointLight ref={mouseLightRef} color="#A855F7" intensity={1.1} distance={18} position={[0, 0, 4]} />
+      <ambientLight intensity={0.3} />
+      {/* Original purple key light */}
+      <directionalLight position={[6, 8, 8]} intensity={1.1} color="#C084FC" />
+      {/* Original fill */}
+      <directionalLight position={[-8, -5, -6]} intensity={0.7} color="#8B5CF6" />
+      {/* NEW: Cyan directional from upper-right — complements the decorative polyhedron */}
+      <directionalLight position={[10, 6, 3]} intensity={0.45} color="#06B6D4" />
+      {/* NEW: Electric-blue low-left fill for depth */}
+      <directionalLight position={[-10, -8, -4]} intensity={0.25} color="#3B82F6" />
+      {/* Mouse-tracking purple point */}
+      <pointLight ref={mouseLightRef} color="#A855F7" intensity={1.0} distance={18} position={[0, 0, 4]} />
     </>
   );
 }
@@ -692,7 +892,14 @@ export default function BackgroundScene() {
         inset: 0,
         zIndex: 0,
         pointerEvents: "none",
-        background: "radial-gradient(ellipse at 35% 20%, rgba(139,92,246,0.08) 0%, transparent 55%), radial-gradient(ellipse at 75% 70%, rgba(168,85,247,0.06) 0%, transparent 50%), #05030D",
+        // Multi-stop ambient: cyan upper-right, blue lower-left, violet mid — over very dark navy
+        background: [
+          "radial-gradient(ellipse at 72% 18%, rgba(6,182,212,0.07) 0%, transparent 48%)",
+          "radial-gradient(ellipse at 18% 72%, rgba(59,130,246,0.06) 0%, transparent 50%)",
+          "radial-gradient(ellipse at 48% 38%, rgba(168,85,247,0.05) 0%, transparent 55%)",
+          "radial-gradient(ellipse at 82% 80%, rgba(139,92,246,0.04) 0%, transparent 45%)",
+          "#020617",
+        ].join(", "),
       }}
     >
       <Canvas
@@ -708,17 +915,23 @@ export default function BackgroundScene() {
         <CameraController />
         <SceneLighting />
 
-        {/* BACKGROUND LAYER (Deep Stars & Particles) */}
+        {/* BACKGROUND LAYER (Deep Data Particles — cyan) */}
         <DeepBackgroundParticles count={isMobile ? 180 : 450} />
         {!isMobile && <AmbientNeuralNetwork />}
+
+        {/* PERSPECTIVE DOT GRID WAVE — hero section bottom */}
+        <PerspectiveDotGridWave isMobile={isMobile} />
 
         {/* MIDGROUND LAYER: THE SIGNATURE ABSTRACT 3D MONOLITH */}
         <SignatureAbstractStructure isMobile={isMobile} />
 
-        {/* FOREGROUND LAYER (Floating Glowing Dust Motes) */}
+        {/* DECORATIVE POLYHEDRON — upper right with orbital rings */}
+        {!isMobile && <DecorativePolyhedron isMobile={isMobile} />}
+
+        {/* FOREGROUND LAYER (Floating Glowing Dust Motes — light cyan) */}
         <ForegroundFloatingParticles count={isMobile ? 50 : 130} />
 
-        <fog attach="fog" args={["#05030D", 14, 32]} />
+        <fog attach="fog" args={["#020617", 14, 32]} />
       </Canvas>
     </div>
   );
