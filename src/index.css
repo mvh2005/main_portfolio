@@ -1468,14 +1468,10 @@ section {
   .projects-section::before,
   .experience-section::before,
   .achievements-section::before,
-<<<<<<< HEAD
   .certifications-section::before,
   .ps-section::before,
   .learning-section::before,
   .resume-cta-section::before {
-=======
-  .certifications-section::before {
->>>>>>> 149ded1b79fdb672937e7b05e87954e128ded29e
     animation: none !important;
     opacity: 0.30 !important;
   }
@@ -1485,7 +1481,6 @@ section {
     animation: none !important;
     opacity: 0.25 !important;
   }
-<<<<<<< HEAD
 }
 
 /* ============================================================
@@ -2132,6 +2127,4 @@ section {
   .hero-socials { gap: 6px; }
   .hero-social-link { font-size: 10px; padding: 6px 10px; }
   .learning-item { grid-template-columns: 24px 1fr; gap: 12px; }
-=======
->>>>>>> 149ded1b79fdb672937e7b05e87954e128ded29e
 }
