@@ -1,11 +1,11 @@
-﻿import React from "react";
-import { Github, Linkedin, Mail, Instagram } from "lucide-react";
+import React from "react";
+import { Github, Linkedin, Mail, Instagram, Code2 } from "lucide-react";
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="footer">
+    <footer className="footer" role="contentinfo">
       <div className="footer-inner">
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <div style={{
@@ -17,7 +17,7 @@ export default function Footer() {
           <div>
             <div style={{ fontSize: 14, fontWeight: 600, color: "var(--text-main)" }}>Mara Vignesh</div>
             <div style={{ fontSize: 11, fontFamily: "var(--font-mono)", color: "var(--text-dim)" }}>
-              AI & Full Stack Developer
+              AI &amp; Full Stack Developer
             </div>
           </div>
         </div>
@@ -30,6 +30,7 @@ export default function Footer() {
           {[
             { href: "https://github.com/mvh2005", Icon: Github, label: "GitHub" },
             { href: "https://www.linkedin.com/in/mara-vignesh-561942279/", Icon: Linkedin, label: "LinkedIn" },
+            { href: "https://leetcode.com/u/vigneshmara143/", Icon: Code2, label: "LeetCode" },
             { href: "mailto:vigneshmara143@gmail.com", Icon: Mail, label: "Email" },
             { href: "https://instagram.com/v_ignesh.ikky/", Icon: Instagram, label: "Instagram" },
           ].map(({ href, Icon, label }) => (

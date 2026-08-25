@@ -1,5 +1,5 @@
-﻿import React, { useRef, useEffect, useState } from "react";
-import { Mail, Github, Linkedin, Send, CheckCircle } from "lucide-react";
+import React, { useRef, useEffect, useState } from "react";
+import { Mail, Github, Linkedin, Send, CheckCircle, Code2 } from "lucide-react";
 
 function FloatingOrb({ mouseRef }) {
   const orbRef = useRef(null);
@@ -54,25 +54,50 @@ export default function Contact() {
       <FloatingOrb mouseRef={mouseRef} />
 
       <div className="container contact-inner">
-        <span className="section-label">07 / Contact</span>
+        <span className="section-label">11 / Contact</span>
         <h2 className="contact-headline">
           Let&apos;s Build<br />
           <span className="highlight">Something</span>
         </h2>
         <p className="contact-text">
-          Have an opportunity, project, or idea? Let&apos;s build something intelligent together.
-          I&apos;m actively seeking internships and collaboration opportunities.
+          Open to software engineering, AI&nbsp;/&nbsp;ML, and full-stack internship opportunities.
+          Have a project or idea? Let&apos;s build something intelligent together.
         </p>
 
         <div className="contact-buttons">
-          <a href="mailto:vigneshmara143@gmail.com" className="btn btn-primary">
+          <a
+            href="mailto:vigneshmara143@gmail.com"
+            className="btn btn-primary"
+            aria-label="Send email to Mara Vignesh"
+          >
             <Mail size={16} /> Email Me
           </a>
-          <a href="https://github.com/mvh2005" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+          <a
+            href="https://github.com/mvh2005"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-secondary"
+            aria-label="GitHub profile"
+          >
             <Github size={16} /> GitHub
           </a>
-          <a href="https://www.linkedin.com/in/mara-vignesh-561942279/" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+          <a
+            href="https://www.linkedin.com/in/mara-vignesh-561942279/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-secondary"
+            aria-label="LinkedIn profile"
+          >
             <Linkedin size={16} /> LinkedIn
+          </a>
+          <a
+            href="https://leetcode.com/u/vigneshmara143/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-secondary"
+            aria-label="LeetCode profile"
+          >
+            <Code2 size={16} /> LeetCode
           </a>
         </div>
 
@@ -95,32 +120,37 @@ export default function Contact() {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} noValidate>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
                 <div className="form-group">
-                  <label>Name</label>
+                  <label htmlFor="contact-name">Name</label>
                   <input
+                    id="contact-name"
                     type="text"
                     placeholder="Your name"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     required
+                    autoComplete="name"
                   />
                 </div>
                 <div className="form-group">
-                  <label>Email</label>
+                  <label htmlFor="contact-email">Email</label>
                   <input
+                    id="contact-email"
                     type="email"
                     placeholder="your@email.com"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     required
+                    autoComplete="email"
                   />
                 </div>
               </div>
               <div className="form-group">
-                <label>Message</label>
+                <label htmlFor="contact-message">Message</label>
                 <textarea
+                  id="contact-message"
                   placeholder="Tell me about the opportunity, project, or idea..."
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}

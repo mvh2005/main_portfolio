@@ -1,5 +1,5 @@
-﻿import React, { useRef, useEffect, useState, lazy, Suspense } from "react";
-import { ArrowRight, Download, Mail } from "lucide-react";
+import React, { useRef, useEffect, useState, lazy, Suspense } from "react";
+import { ArrowRight, Download, Github, Linkedin, Mail, Code2 } from "lucide-react";
 
 const HeroScene = lazy(() => import("../three/HeroScene"));
 
@@ -7,6 +7,7 @@ const ROLES = [
   "AI & ML Engineer",
   "Full Stack Developer",
   "Java Developer",
+  "Python Developer",
   "Computer Science Student",
 ];
 
@@ -47,6 +48,33 @@ function TypeWriter() {
   );
 }
 
+const SOCIAL_LINKS = [
+  {
+    label: "GitHub",
+    href: "https://github.com/mvh2005",
+    icon: Github,
+    ariaLabel: "GitHub profile",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/mara-vignesh-561942279/",
+    icon: Linkedin,
+    ariaLabel: "LinkedIn profile",
+  },
+  {
+    label: "LeetCode",
+    href: "https://leetcode.com/u/vigneshmara143/",
+    icon: Code2,
+    ariaLabel: "LeetCode profile",
+  },
+  {
+    label: "Email",
+    href: "mailto:vigneshmara143@gmail.com",
+    icon: Mail,
+    ariaLabel: "Send email",
+  },
+];
+
 export default function Hero() {
   const mouseRef = useRef({ x: 0, y: 0 });
 
@@ -72,7 +100,7 @@ export default function Hero() {
         <div className="hero-content">
           <div className="hero-tag">
             <span className="hero-tag-dot" />
-            Computer Science & AI Undergraduate
+            Computer Science &amp; AI Undergraduate
           </div>
 
           <div className="hero-name">
@@ -83,14 +111,13 @@ export default function Hero() {
           <TypeWriter />
 
           <h2 className="hero-headline">
-            Building Intelligent Software &amp;<br />
-            Interactive Digital Experiences
+            Building Intelligent, Scalable<br />
+            &amp; User-Focused Software
           </h2>
 
           <p className="hero-description">
-            Computer Science and Artificial Intelligence undergraduate with experience in
-            Machine Learning, Generative AI, Web Development, Java, Python, and full-stack
-            application development.
+            Building intelligent, scalable, and user-focused software with Java, Python,
+            AI&nbsp;/&nbsp;ML, React, and modern backend technologies.
           </p>
 
           <div className="hero-ctas">
@@ -108,12 +135,23 @@ export default function Hero() {
             >
               <Download size={16} /> Download Resume
             </a>
-            <button
-              className="btn btn-ghost"
-              onClick={() => scrollTo("#contact")}
-            >
-              <Mail size={16} /> Get In Touch
-            </button>
+          </div>
+
+          {/* Social Links Strip */}
+          <div className="hero-socials">
+            {SOCIAL_LINKS.map(({ label, href, icon: Icon, ariaLabel }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith("mailto") ? undefined : "_blank"}
+                rel="noopener noreferrer"
+                aria-label={ariaLabel}
+                className="hero-social-link"
+              >
+                <Icon size={16} />
+                <span>{label}</span>
+              </a>
+            ))}
           </div>
 
           <div className="hero-stats">
@@ -126,8 +164,8 @@ export default function Hero() {
               <span className="stat-label">Internships</span>
             </div>
             <div className="stat-card">
-              <span className="stat-value">3</span>
-              <span className="stat-label">Major Projects</span>
+              <span className="stat-value">50+</span>
+              <span className="stat-label">LeetCode</span>
             </div>
             <div className="stat-card">
               <span className="stat-value">5★</span>
